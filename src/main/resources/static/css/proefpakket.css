@@ -1,0 +1,17 @@
+body {
+	font-family: sans-serif;
+	background-color: #FFFCE6;
+}
+
+h1 {
+	color: brown;
+}
+
+blockquote {
+	margin-left: 0;
+	font-style: italic;
+}
+
+.fullwidth {
+	width: 100%;
+}
