@@ -5,5 +5,14 @@
 	<h1>Proefpakket.</h1>
 	<blockquote>Een pakket bieren van een brouwer naar uw keuze.</blockquote>
 	<img alt="brouwerij" th:src="@{/images/brouwerij.jpg}" class="fullwidth">
+	
+	<p>Kies een brouwer:</p>
+	<ul id="alfabet">
+		<li th:each="letter:${alfabet}"><a th:text="${letter}" th:href="@{/{beginletter}(beginletter=${letter})}"></a></li>
+	</ul>
+	
+	<ul th:if="${not #lists.isEmpty(brouwers)}">
+		<li th:each="brouwer:${brouwers}"><a th:text="${brouwer.naam}" th:href="@{/brouwers/{id}(id=${brouwer.id})}"></a></li>
+	</ul>
 </body>
 </html>

@@ -15,3 +15,16 @@ blockquote {
 .fullwidth {
 	width: 100%;
 }
+
+#alfabet {
+	list-style-type: none;
+	padding: 0;
+}
+#alfabet li {
+	display: inline;
+}
+
+dd {
+	margin-left: 0;
+	font-weight: bold;
+}
