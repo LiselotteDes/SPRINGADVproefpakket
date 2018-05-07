@@ -6,9 +6,10 @@
 	<blockquote>Een pakket bieren van een brouwer naar uw keuze.</blockquote>
 	<img alt="brouwerij" th:src="@{/images/brouwerij.jpg}" class="fullwidth">
 	
-	<p>Kies een brouwer:</p>
+	<div th:if="${param.fout != null}" th:text="${param.fout}" class="fout"></div>
+	<div>Kies een brouwer:</div>
 	<ul id="alfabet">
-		<li th:each="letter:${alfabet}"><a th:text="${letter}" th:href="@{/{beginletter}(beginletter=${letter})}"></a></li>
+		<li th:each="letter:${alfabet}"><a th:text="${letter}" th:href="@{/(letter=${letter})}"></a></li>
 	</ul>
 	
 	<ul th:if="${not #lists.isEmpty(brouwers)}">

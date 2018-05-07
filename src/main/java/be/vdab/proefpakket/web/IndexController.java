@@ -26,8 +26,12 @@ class IndexController {
 		return new ModelAndView(VIEW, "alfabet", ALFABET);
 	}
 	
-	@GetMapping("{beginletter}")
-	ModelAndView findByBeginLetter(@PathVariable String beginletter) {
-		return new ModelAndView(VIEW, "alfabet", ALFABET).addObject("brouwers", brouwerService.findByBeginNaam(beginletter));
+	/*@GetMapping("{letter}")
+	ModelAndView findByBeginLetter(@PathVariable String letter) {
+		return new ModelAndView(VIEW, "alfabet", ALFABET).addObject("brouwers", brouwerService.findByBeginNaam(letter));
+	}	FOUT! */
+	@GetMapping(params = "letter")
+	ModelAndView findByBeginLetter(String letter) {
+		return new ModelAndView(VIEW, "alfabet", ALFABET).addObject("brouwers", brouwerService.findByBeginNaam(letter));
 	}
 }

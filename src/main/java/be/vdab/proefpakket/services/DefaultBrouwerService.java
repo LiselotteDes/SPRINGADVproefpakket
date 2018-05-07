@@ -24,9 +24,4 @@ class DefaultBrouwerService implements BrouwerService {
 	public List<Brouwer> findByBeginNaam(String beginNaam) {
 		return brouwerRepository.findByNaamStartingWithOrderByNaam(beginNaam);
 	}
-	
-	@Override
-	public Optional<Brouwer> read(long id) {
-		return brouwerRepository.findById(id);
-	}
 }

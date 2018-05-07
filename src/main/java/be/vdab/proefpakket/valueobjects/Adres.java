@@ -21,7 +21,7 @@ public class Adres implements Serializable {
 	public String getStraat() {
 		return straat;
 	}
-	public String getHuisNr() {
+	public String getHuisnr() {
 		return huisnr;
 	}
 	public Gemeente getGemeente() {
