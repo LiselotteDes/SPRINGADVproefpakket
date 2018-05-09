@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="nl" xmlns:th="http://www.thymeleaf.org">
-<head th:replace="fragments::head(title='Proefpakket')"></head>
+<head th:replace="fragments::head(title=#{proefpakket})"></head>
 <body>
-	<h1>Proefpakket.</h1>
-	<blockquote>Een pakket bieren van een brouwer naar uw keuze.</blockquote>
-	<img alt="brouwerij" th:src="@{/images/brouwerij.jpg}" class="fullwidth">
+	<h1><span th:text="#{proefpakket}"></span>.</h1>
+	<blockquote th:text="#{pakketBieren}"></blockquote>
+	<img alt="#{brouwerij}" th:src="@{/images/brouwerij.jpg}" class="fullwidth">
 	
 	<div th:if="${param.fout != null}" th:text="${param.fout}" class="fout"></div>
-	<div>Kies een brouwer:</div>
+	<div th:text="#{kiesBrouwer}"></div>
 	<ul id="alfabet">
 		<li th:each="letter:${alfabet}"><a th:text="${letter}" th:href="@{/(letter=${letter})}"></a></li>
 	</ul>
@@ -15,5 +15,8 @@
 	<ul th:if="${not #lists.isEmpty(brouwers)}">
 		<li th:each="brouwer:${brouwers}"><a th:text="${brouwer.naam}" th:href="@{/brouwers/{id}(id=${brouwer.id})}"></a></li>
 	</ul>
+	<a th:href="@{?locale=nl_BE}">Nederlands</a>
+	<a th:href="@{?locale=fr_BE}">Français</a>
+	
 </body>
 </html>
