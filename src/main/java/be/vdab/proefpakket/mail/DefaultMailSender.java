@@ -21,7 +21,7 @@ class DefaultMailSender implements MailSender {
 	}
 	
 	@Override
-	public void nieuwProefpakket(Bestelling bestelling) {
+	/*public void nieuwProefpakket(Bestelling bestelling) {
 		
 		try {
 			
@@ -40,6 +40,22 @@ class DefaultMailSender implements MailSender {
 			throw new KanMailNietZendenException();
 		}
 		
+	}*/
+	public void nieuwProefpakket(String emailAdres, String brouwerNaam) {
+		
+		try {
+			
+			SimpleMailMessage message = new SimpleMailMessage();
+			message.setTo(emailAdres);
+			message.setSubject("Nieuw proefpakket " + brouwerNaam);
+			message.setText("Bedankt voor uw interesse. U ontvangt uw proefpakket " + brouwerNaam + " binnenkort.");
+			sender.send(message);
+			
+		} catch(MailException ex) {
+			
+			LOGGER.error("Kan mail proefpakket niet versturen", ex);
+			throw new KanMailNietZendenException();
+		}
 	}
 
 }
